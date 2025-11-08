@@ -11,3 +11,9 @@ coverage/*
 *.local
 *.env.local
 Thumbs.db
+
+# Build outputs and IDE
+/.parcel-cache
+.turbo
+.next
+.cache
