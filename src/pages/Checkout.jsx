@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { convertToRWF, formatRWF } from '../utils/currency'
 
 export default function Checkout() {
   const { cart, totalPrice, clearCart } = useCart()
@@ -17,8 +18,9 @@ export default function Checkout() {
   }
 
   if (cart.length === 0) return (
-    <div>
+    <div className="container" style={{padding: '32px 16px', textAlign: 'center'}}>
       <h1>No items to checkout</h1>
+      <Link to="/" className="btn primary" style={{marginTop: '24px', display: 'inline-block'}}>Continue shopping</Link>
     </div>
   )
 
@@ -28,20 +30,38 @@ export default function Checkout() {
       <form onSubmit={submit} className="checkout-form">
         <label>
           Full name
-          <input value={form.name} onChange={e => setForm({...form, name: e.target.value})} required />
+          <input 
+            type="text"
+            value={form.name} 
+            onChange={e => setForm({...form, name: e.target.value})} 
+            required 
+            placeholder="Enter your full name"
+          />
         </label>
         <label>
           Email
-          <input type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} required />
+          <input 
+            type="email" 
+            value={form.email} 
+            onChange={e => setForm({...form, email: e.target.value})} 
+            required 
+            placeholder="Enter your email"
+          />
         </label>
         <label>
           Shipping address
-          <textarea value={form.address} onChange={e => setForm({...form, address: e.target.value})} required />
+          <textarea 
+            value={form.address} 
+            onChange={e => setForm({...form, address: e.target.value})} 
+            required 
+            placeholder="Enter your shipping address"
+            rows="4"
+          />
         </label>
         <div className="checkout-summary">
-          <p>Total: <strong>${totalPrice.toFixed(2)}</strong></p>
+          <p>Total: <strong>{formatRWF(convertToRWF(totalPrice))}</strong></p>
         </div>
-        <div className="actions">
+        <div className="detail-actions">
           <button className="btn primary" type="submit">Place order</button>
         </div>
       </form>

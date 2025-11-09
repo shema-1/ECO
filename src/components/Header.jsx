@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { categoryStructure } from '../data/products'
@@ -11,6 +11,30 @@ export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const categories = Object.keys(categoryStructure)
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+    setIsCategoryOpen(false)
+    setActiveCategory(null)
+    document.body.classList.remove('menu-open')
+  }
+
+  const toggleMenu = () => {
+    const newState = !isMenuOpen
+    setIsMenuOpen(newState)
+    if (newState) {
+      document.body.classList.add('menu-open')
+    } else {
+      document.body.classList.remove('menu-open')
+    }
+  }
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove('menu-open')
+    }
+  }, [])
 
   return (
     <header className="site-header">
@@ -40,14 +64,15 @@ export default function Header() {
         <div className="container header-inner">
           <button 
             className="mobile-menu-btn"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
           >
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={closeMenu}>
             <span className="logo-text">Rwanda</span>
             <span className="logo-market">Market</span>
           </Link>
@@ -68,18 +93,25 @@ export default function Header() {
           </div>
 
           <div className="header-actions">
-            <Link to="/wishlist" className="wishlist-btn">
+            <Link to="/wishlist" className="wishlist-btn" aria-label="Wishlist">
               ❤️ <span className="count">0</span>
             </Link>
-            <Link to="/cart" className="cart-btn">
+            <Link to="/cart" className="cart-btn" aria-label="Cart">
               🛒 <span className="cart-count">{totalItems}</span>
             </Link>
-            <Link to="/account" className="account-btn">
-              👤 Account
+            <Link to="/account" className="account-btn" aria-label="Account">
+              👤 <span>Account</span>
             </Link>
           </div>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <div 
+          className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`}
+          onClick={closeMenu}
+        />
+      )}
 
       <nav className={`main-nav ${isMenuOpen ? 'active' : ''}`}>
         <div className="container">
@@ -100,6 +132,7 @@ export default function Header() {
                       key={category}
                       className={`category-item ${activeCategory === category ? 'active' : ''}`}
                       onMouseEnter={() => setActiveCategory(category)}
+                      onClick={() => setActiveCategory(category === activeCategory ? null : category)}
                     >
                       {category} <span className="arrow">▸</span>
                     </div>
@@ -118,7 +151,7 @@ export default function Header() {
                             to={`/category/${activeCategory}/${sub.toLowerCase()}`}
                             onClick={() => {
                               setIsCategoryOpen(false)
-                              setIsMenuOpen(false)
+                              closeMenu()
                             }}
                           >
                             {sub}
@@ -132,6 +165,7 @@ export default function Header() {
                             key={item}
                             to={`/featured/${item.toLowerCase()}`}
                             className="featured-item"
+                            onClick={closeMenu}
                           >
                             {item}
                           </Link>
@@ -145,16 +179,16 @@ export default function Header() {
           </div>
 
           <div className="nav-links">
-            <Link to="/deals" className="nav-link">
+            <Link to="/deals" className="nav-link" onClick={closeMenu}>
               <span className="icon">🔥</span> Flash Deals
             </Link>
-            <Link to="/new" className="nav-link">New Arrivals</Link>
-            <Link to="/trending" className="nav-link">Trending</Link>
-            <Link to="/clearance" className="nav-link special">Clearance Sale</Link>
+            <Link to="/new" className="nav-link" onClick={closeMenu}>New Arrivals</Link>
+            <Link to="/trending" className="nav-link" onClick={closeMenu}>Trending</Link>
+            <Link to="/clearance" className="nav-link special" onClick={closeMenu}>Clearance Sale</Link>
           </div>
 
           <div className="nav-extra">
-            <Link to="/sell" className="seller-link">Sell on Rwanda Market</Link>
+            <Link to="/sell" className="seller-link" onClick={closeMenu}>Sell on Rwanda Market</Link>
           </div>
         </div>
       </nav>
