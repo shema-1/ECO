@@ -2,47 +2,47 @@
   "Electronics": {
     subcategories: ["Phones & Tablets", "Computers", "Wearables", "Audio", "TV & Home Theater"],
     featured: ["iPhone 14 Pro", "Gaming PC RTX 4080", "Premium Headphones"],
-    bannerImage: "https://picsum.photos/id/160/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&h=300&fit=crop"
   },
   "Fashion": {
     subcategories: ["Traditional Wear", "Modern Fashion", "Kids & Baby", "Shoes", "Accessories"],
     featured: ["Umushanana Collection", "Modern Imikenyero", "Traditional Accessories"],
-    bannerImage: "https://picsum.photos/id/1005/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=300&fit=crop"
   },
   "Home & Living": {
     subcategories: ["Furniture", "Kitchen", "Decor", "Bedding", "Garden"],
     featured: ["Kitchen Essentials", "Home Office", "Outdoor"],
-    bannerImage: "https://picsum.photos/id/1048/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=300&fit=crop"
   },
   "Sports": {
     subcategories: ["Fitness", "Outdoor Sports", "Team Sports", "Swimming", "Cycling"],
     featured: ["Gym Equipment", "Soccer Gear", "Yoga & Meditation"],
-    bannerImage: "https://picsum.photos/id/146/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=300&fit=crop"
   },
   "Beauty & Health": {
     subcategories: ["Skincare", "Makeup", "Hair Care", "Fragrances", "Personal Care"],
     featured: ["Natural Products", "Korean Beauty", "Mens Grooming"],
-    bannerImage: "https://picsum.photos/id/64/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=1200&h=300&fit=crop"
   },
   "Agriculture": {
     subcategories: ["Farm Equipment", "Seeds & Plants", "Fertilizers", "Livestock", "Tools"],
     featured: ["Tractors", "Organic Seeds", "Farming Tools"],
-    bannerImage: "https://picsum.photos/id/1074/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&h=300&fit=crop"
   },
   "Houses": {
     subcategories: ["For Sale", "For Rent", "Apartments", "Villas", "Commercial"],
     featured: ["Modern Houses", "Luxury Villas", "Affordable Homes"],
-    bannerImage: "https://picsum.photos/id/1018/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=300&fit=crop"
   },
   "Lands": {
     subcategories: ["Residential", "Commercial", "Agricultural", "Industrial", "Investment"],
     featured: ["Prime Locations", "Development Land", "Farmland"],
-    bannerImage: "https://picsum.photos/id/1035/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=300&fit=crop"
   },
   "Cars": {
     subcategories: ["Sedans", "SUVs", "Trucks", "Motorcycles", "Commercial Vehicles"],
     featured: ["Toyota Models", "Honda Vehicles", "Luxury Cars"],
-    bannerImage: "https://picsum.photos/id/111/1200/300"
+    bannerImage: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=300&fit=crop"
   }
 };
 
@@ -63,27 +63,27 @@ const products = [
   },
   {
     id: "td2",
-    name: "Samsung Galaxy Note6 Mobile Phone",
-    price: 246075,
-    description: "Original Samsung Galaxy smartphone with premium features",
-    image: "https://picsum.photos/id/160/600/400",
+    name: "Samsung Galaxy A54 5G",
+    price: 450000,
+    description: "128GB storage, 6.4 inch display, 50MP camera. Brand new with warranty.",
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=400&fit=crop",
     category: "Electronics",
     subcategory: "Phones & Tablets",
-    rating: 4.8,
-    stock: 15,
-    discount: 29
+    rating: 4.7,
+    stock: 12,
+    discount: 8
   },
   {
     id: "td3",
-    name: "iPhone 15 Pro Max",
-    price: 98983,
-    description: "Latest iPhone model with advanced camera system",
-    image: "https://picsum.photos/id/1/600/400",
+    name: "iPhone 14 Pro 128GB",
+    price: 1200000,
+    description: "Latest iPhone with ProMotion display, A16 chip, and 48MP camera system.",
+    image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&h=400&fit=crop",
     category: "Electronics",
     subcategory: "Phones & Tablets",
     rating: 4.9,
-    stock: 8,
-    discount: 3
+    stock: 5,
+    discount: 5
   },
   {
     id: "td4",
@@ -675,19 +675,19 @@ const products = [
     name: "Compact Tractor 25HP",
     price: 8500000,
     description: "Reliable compact tractor perfect for small to medium farms. Includes plow attachment.",
-    image: "https://picsum.photos/id/1074/600/400",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&h=400&fit=crop",
     category: "Agriculture",
     subcategory: "Farm Equipment",
     rating: 4.7,
-    stock: 5,
+    stock: 3,
     featured: true
   },
   {
     id: "ag2",
     name: "Organic Coffee Seeds (1kg)",
-    price: 12500,
+    price: 15000,
     description: "Premium organic coffee seeds from local Rwandan farms. High yield variety.",
-    image: "https://picsum.photos/id/1075/600/400",
+    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&h=400&fit=crop",
     category: "Agriculture",
     subcategory: "Seeds & Plants",
     rating: 4.5,
@@ -699,7 +699,7 @@ const products = [
     name: "Organic Fertilizer 50kg",
     price: 45000,
     description: "Natural organic fertilizer for healthy crop growth. Environmentally friendly.",
-    image: "https://picsum.photos/id/1076/600/400",
+    image: "https://images.unsplash.com/photo-1615485925511-ef3f3b1d0e5e?w=600&h=400&fit=crop",
     category: "Agriculture",
     subcategory: "Fertilizers",
     rating: 4.6,
@@ -710,7 +710,7 @@ const products = [
     name: "Farming Tool Set",
     price: 35000,
     description: "Complete set of essential farming tools including hoe, rake, and shovel.",
-    image: "https://picsum.photos/id/1077/600/400",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
     category: "Agriculture",
     subcategory: "Tools",
     rating: 4.4,
@@ -723,7 +723,7 @@ const products = [
     name: "Modern 3-Bedroom House in Kigali",
     price: 250000000,
     description: "Beautiful modern house with 3 bedrooms, 2 bathrooms, fully furnished. Prime location in Kigali.",
-    image: "https://picsum.photos/id/1018/600/400",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop",
     category: "Houses",
     subcategory: "For Sale",
     rating: 4.8,
@@ -735,7 +735,7 @@ const products = [
     name: "Luxury Villa - 5 Bedrooms",
     price: 850000000,
     description: "Stunning luxury villa with 5 bedrooms, swimming pool, and large garden. Perfect for families.",
-    image: "https://picsum.photos/id/1019/600/400",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop",
     category: "Houses",
     subcategory: "Villas",
     rating: 5.0,
@@ -747,7 +747,7 @@ const products = [
     name: "2-Bedroom Apartment for Rent",
     price: 350000,
     description: "Cozy 2-bedroom apartment in city center. Available for monthly rent. Includes parking.",
-    image: "https://picsum.photos/id/1020/600/400",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop",
     category: "Houses",
     subcategory: "For Rent",
     rating: 4.5,
@@ -758,7 +758,7 @@ const products = [
     name: "Affordable Starter Home",
     price: 120000000,
     description: "Perfect starter home with 2 bedrooms, 1 bathroom. Great investment opportunity.",
-    image: "https://picsum.photos/id/1021/600/400",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop",
     category: "Houses",
     subcategory: "For Sale",
     rating: 4.6,
@@ -771,7 +771,7 @@ const products = [
     name: "Prime Residential Land - 500sqm",
     price: 45000000,
     description: "Prime residential land in developing area. Perfect for building your dream home.",
-    image: "https://picsum.photos/id/1035/600/400",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop",
     category: "Lands",
     subcategory: "Residential",
     rating: 4.7,
@@ -783,7 +783,7 @@ const products = [
     name: "Commercial Land - 2000sqm",
     price: 180000000,
     description: "Large commercial plot ideal for business development. Located in business district.",
-    image: "https://picsum.photos/id/1036/600/400",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop",
     category: "Lands",
     subcategory: "Commercial",
     rating: 4.8,
@@ -795,7 +795,7 @@ const products = [
     name: "Agricultural Farmland - 5 Hectares",
     price: 95000000,
     description: "Fertile agricultural land perfect for farming. Includes water access.",
-    image: "https://picsum.photos/id/1037/600/400",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop",
     category: "Lands",
     subcategory: "Agricultural",
     rating: 4.6,
@@ -806,7 +806,7 @@ const products = [
     name: "Investment Land Package",
     price: 65000000,
     description: "Great investment opportunity. Multiple plots available in growing area.",
-    image: "https://picsum.photos/id/1038/600/400",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop",
     category: "Lands",
     subcategory: "Investment",
     rating: 4.5,
@@ -819,7 +819,7 @@ const products = [
     name: "Toyota RAV4 2023",
     price: 35000000,
     description: "Reliable Toyota RAV4 SUV. Low mileage, excellent condition. Perfect for family use.",
-    image: "https://picsum.photos/id/111/600/400",
+    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=400&fit=crop",
     category: "Cars",
     subcategory: "SUVs",
     rating: 4.8,
@@ -831,7 +831,7 @@ const products = [
     name: "Honda Civic 2022",
     price: 18500000,
     description: "Fuel-efficient Honda Civic sedan. Well maintained, single owner. Great value.",
-    image: "https://picsum.photos/id/112/600/400",
+    image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&h=400&fit=crop",
     category: "Cars",
     subcategory: "Sedans",
     rating: 4.7,
@@ -843,7 +843,7 @@ const products = [
     name: "Toyota Hilux Double Cab",
     price: 42000000,
     description: "Powerful Toyota Hilux pickup truck. Perfect for both work and personal use.",
-    image: "https://picsum.photos/id/113/600/400",
+    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop",
     category: "Cars",
     subcategory: "Trucks",
     rating: 4.9,
@@ -855,7 +855,7 @@ const products = [
     name: "Yamaha Motorcycle 150cc",
     price: 2800000,
     description: "Reliable Yamaha motorcycle. Great fuel economy, perfect for city commuting.",
-    image: "https://picsum.photos/id/114/600/400",
+    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&h=400&fit=crop",
     category: "Cars",
     subcategory: "Motorcycles",
     rating: 4.6,
@@ -867,7 +867,7 @@ const products = [
     name: "Mercedes-Benz C-Class",
     price: 55000000,
     description: "Luxury Mercedes-Benz sedan. Premium features, excellent condition.",
-    image: "https://picsum.photos/id/115/600/400",
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&h=400&fit=crop",
     category: "Cars",
     subcategory: "Sedans",
     rating: 5.0,

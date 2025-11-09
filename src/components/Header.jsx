@@ -144,11 +144,11 @@ export default function Header() {
                     <h3>{activeCategory}</h3>
                     <div className="subcategory-grid">
                       <div className="subcategories">
-                        <h4>Categories</h4>
+                        <h4>Subcategories</h4>
                         {categoryStructure[activeCategory].subcategories.map(sub => (
                           <Link 
                             key={sub}
-                            to={`/category/${activeCategory}/${sub.toLowerCase()}`}
+                            to={`/category/${encodeURIComponent(activeCategory)}/${encodeURIComponent(sub.toLowerCase().replace(/\s+/g, '-'))}`}
                             onClick={() => {
                               setIsCategoryOpen(false)
                               closeMenu()
@@ -163,7 +163,7 @@ export default function Header() {
                         {categoryStructure[activeCategory].featured.map(item => (
                           <Link 
                             key={item}
-                            to={`/featured/${item.toLowerCase()}`}
+                            to={`/category/${encodeURIComponent(activeCategory)}`}
                             className="featured-item"
                             onClick={closeMenu}
                           >

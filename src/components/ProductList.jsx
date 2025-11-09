@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import products from '../data/products'
 import ProductCard from './ProductCard'
 
@@ -12,7 +13,8 @@ const priceRanges = [
   { label: 'Over 200,000 RWF', min: 200000, max: Infinity }
 ]
 
-export default function ProductList() {
+export default function ProductList({ category: propCategory }) {
+  const { category: urlCategory, subcategory: urlSubcategory } = useParams()
   const [search, setSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedSubcategory, setSelectedSubcategory] = useState('All')
@@ -20,6 +22,31 @@ export default function ProductList() {
   const [sortBy, setSortBy] = useState('featured')
   const [inStock, setInStock] = useState(false)
   const [onlyFeatured, setOnlyFeatured] = useState(false)
+
+  // Update category from URL params
+  useEffect(() => {
+    if (urlCategory) {
+      const decodedCategory = decodeURIComponent(urlCategory).replace(/-/g, ' ')
+      // Find matching category (case-insensitive, handle spaces)
+      const matchedCategory = categories.find(cat => 
+        cat.toLowerCase() === decodedCategory.toLowerCase() ||
+        cat.toLowerCase().replace(/\s+/g, '-') === decodedCategory.toLowerCase()
+      )
+      if (matchedCategory) {
+        setSelectedCategory(matchedCategory)
+      }
+    }
+    if (urlSubcategory) {
+      const decodedSubcategory = decodeURIComponent(urlSubcategory).replace(/-/g, ' ')
+      const matchedSubcategory = subcategories.find(sub => 
+        sub.toLowerCase() === decodedSubcategory.toLowerCase() ||
+        sub.toLowerCase().replace(/\s+/g, '-') === decodedSubcategory.toLowerCase()
+      )
+      if (matchedSubcategory) {
+        setSelectedSubcategory(matchedSubcategory)
+      }
+    }
+  }, [urlCategory, urlSubcategory])
 
   const filteredProducts = useMemo(() => {
     if (!products || products.length === 0) {
