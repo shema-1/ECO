@@ -23,6 +23,26 @@
     subcategories: ["Skincare", "Makeup", "Hair Care", "Fragrances", "Personal Care"],
     featured: ["Natural Products", "Korean Beauty", "Mens Grooming"],
     bannerImage: "https://picsum.photos/id/64/1200/300"
+  },
+  "Agriculture": {
+    subcategories: ["Farm Equipment", "Seeds & Plants", "Fertilizers", "Livestock", "Tools"],
+    featured: ["Tractors", "Organic Seeds", "Farming Tools"],
+    bannerImage: "https://picsum.photos/id/1074/1200/300"
+  },
+  "Houses": {
+    subcategories: ["For Sale", "For Rent", "Apartments", "Villas", "Commercial"],
+    featured: ["Modern Houses", "Luxury Villas", "Affordable Homes"],
+    bannerImage: "https://picsum.photos/id/1018/1200/300"
+  },
+  "Lands": {
+    subcategories: ["Residential", "Commercial", "Agricultural", "Industrial", "Investment"],
+    featured: ["Prime Locations", "Development Land", "Farmland"],
+    bannerImage: "https://picsum.photos/id/1035/1200/300"
+  },
+  "Cars": {
+    subcategories: ["Sedans", "SUVs", "Trucks", "Motorcycles", "Commercial Vehicles"],
+    featured: ["Toyota Models", "Honda Vehicles", "Luxury Cars"],
+    bannerImage: "https://picsum.photos/id/111/1200/300"
   }
 };
 
@@ -648,6 +668,211 @@ const products = [
     rating: 4.3,
     stock: 20,
     discount: 6
+  },
+  // Agriculture Products
+  {
+    id: "ag1",
+    name: "Compact Tractor 25HP",
+    price: 8500000,
+    description: "Reliable compact tractor perfect for small to medium farms. Includes plow attachment.",
+    image: "https://picsum.photos/id/1074/600/400",
+    category: "Agriculture",
+    subcategory: "Farm Equipment",
+    rating: 4.7,
+    stock: 5,
+    featured: true
+  },
+  {
+    id: "ag2",
+    name: "Organic Coffee Seeds (1kg)",
+    price: 12500,
+    description: "Premium organic coffee seeds from local Rwandan farms. High yield variety.",
+    image: "https://picsum.photos/id/1075/600/400",
+    category: "Agriculture",
+    subcategory: "Seeds & Plants",
+    rating: 4.5,
+    stock: 50,
+    discount: 10
+  },
+  {
+    id: "ag3",
+    name: "Organic Fertilizer 50kg",
+    price: 45000,
+    description: "Natural organic fertilizer for healthy crop growth. Environmentally friendly.",
+    image: "https://picsum.photos/id/1076/600/400",
+    category: "Agriculture",
+    subcategory: "Fertilizers",
+    rating: 4.6,
+    stock: 30
+  },
+  {
+    id: "ag4",
+    name: "Farming Tool Set",
+    price: 35000,
+    description: "Complete set of essential farming tools including hoe, rake, and shovel.",
+    image: "https://picsum.photos/id/1077/600/400",
+    category: "Agriculture",
+    subcategory: "Tools",
+    rating: 4.4,
+    stock: 25,
+    discount: 15
+  },
+  // Houses
+  {
+    id: "house1",
+    name: "Modern 3-Bedroom House in Kigali",
+    price: 250000000,
+    description: "Beautiful modern house with 3 bedrooms, 2 bathrooms, fully furnished. Prime location in Kigali.",
+    image: "https://picsum.photos/id/1018/600/400",
+    category: "Houses",
+    subcategory: "For Sale",
+    rating: 4.8,
+    stock: 1,
+    featured: true
+  },
+  {
+    id: "house2",
+    name: "Luxury Villa - 5 Bedrooms",
+    price: 850000000,
+    description: "Stunning luxury villa with 5 bedrooms, swimming pool, and large garden. Perfect for families.",
+    image: "https://picsum.photos/id/1019/600/400",
+    category: "Houses",
+    subcategory: "Villas",
+    rating: 5.0,
+    stock: 1,
+    featured: true
+  },
+  {
+    id: "house3",
+    name: "2-Bedroom Apartment for Rent",
+    price: 350000,
+    description: "Cozy 2-bedroom apartment in city center. Available for monthly rent. Includes parking.",
+    image: "https://picsum.photos/id/1020/600/400",
+    category: "Houses",
+    subcategory: "For Rent",
+    rating: 4.5,
+    stock: 3
+  },
+  {
+    id: "house4",
+    name: "Affordable Starter Home",
+    price: 120000000,
+    description: "Perfect starter home with 2 bedrooms, 1 bathroom. Great investment opportunity.",
+    image: "https://picsum.photos/id/1021/600/400",
+    category: "Houses",
+    subcategory: "For Sale",
+    rating: 4.6,
+    stock: 2,
+    discount: 5
+  },
+  // Lands
+  {
+    id: "land1",
+    name: "Prime Residential Land - 500sqm",
+    price: 45000000,
+    description: "Prime residential land in developing area. Perfect for building your dream home.",
+    image: "https://picsum.photos/id/1035/600/400",
+    category: "Lands",
+    subcategory: "Residential",
+    rating: 4.7,
+    stock: 1,
+    featured: true
+  },
+  {
+    id: "land2",
+    name: "Commercial Land - 2000sqm",
+    price: 180000000,
+    description: "Large commercial plot ideal for business development. Located in business district.",
+    image: "https://picsum.photos/id/1036/600/400",
+    category: "Lands",
+    subcategory: "Commercial",
+    rating: 4.8,
+    stock: 1,
+    featured: true
+  },
+  {
+    id: "land3",
+    name: "Agricultural Farmland - 5 Hectares",
+    price: 95000000,
+    description: "Fertile agricultural land perfect for farming. Includes water access.",
+    image: "https://picsum.photos/id/1037/600/400",
+    category: "Lands",
+    subcategory: "Agricultural",
+    rating: 4.6,
+    stock: 1
+  },
+  {
+    id: "land4",
+    name: "Investment Land Package",
+    price: 65000000,
+    description: "Great investment opportunity. Multiple plots available in growing area.",
+    image: "https://picsum.photos/id/1038/600/400",
+    category: "Lands",
+    subcategory: "Investment",
+    rating: 4.5,
+    stock: 5,
+    discount: 8
+  },
+  // Cars
+  {
+    id: "car1",
+    name: "Toyota RAV4 2023",
+    price: 35000000,
+    description: "Reliable Toyota RAV4 SUV. Low mileage, excellent condition. Perfect for family use.",
+    image: "https://picsum.photos/id/111/600/400",
+    category: "Cars",
+    subcategory: "SUVs",
+    rating: 4.8,
+    stock: 2,
+    featured: true
+  },
+  {
+    id: "car2",
+    name: "Honda Civic 2022",
+    price: 18500000,
+    description: "Fuel-efficient Honda Civic sedan. Well maintained, single owner. Great value.",
+    image: "https://picsum.photos/id/112/600/400",
+    category: "Cars",
+    subcategory: "Sedans",
+    rating: 4.7,
+    stock: 3,
+    discount: 12
+  },
+  {
+    id: "car3",
+    name: "Toyota Hilux Double Cab",
+    price: 42000000,
+    description: "Powerful Toyota Hilux pickup truck. Perfect for both work and personal use.",
+    image: "https://picsum.photos/id/113/600/400",
+    category: "Cars",
+    subcategory: "Trucks",
+    rating: 4.9,
+    stock: 1,
+    featured: true
+  },
+  {
+    id: "car4",
+    name: "Yamaha Motorcycle 150cc",
+    price: 2800000,
+    description: "Reliable Yamaha motorcycle. Great fuel economy, perfect for city commuting.",
+    image: "https://picsum.photos/id/114/600/400",
+    category: "Cars",
+    subcategory: "Motorcycles",
+    rating: 4.6,
+    stock: 8,
+    discount: 10
+  },
+  {
+    id: "car5",
+    name: "Mercedes-Benz C-Class",
+    price: 55000000,
+    description: "Luxury Mercedes-Benz sedan. Premium features, excellent condition.",
+    image: "https://picsum.photos/id/115/600/400",
+    category: "Cars",
+    subcategory: "Sedans",
+    rating: 5.0,
+    stock: 1,
+    featured: true
   }
 ];
 
