@@ -2,52 +2,62 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Rwanda Market</title>
+    <title>Rwanda Market - Redirecting...</title>
     <script>
       // Single Page Apps for GitHub Pages
       // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with only a query string and hash fragment,
-      // e.g., https://www.foo.tld/ECO/one/two?a=b&c=d#qwe, becomes
-      // https://www.foo.tld/ECO/?/one/two&a=b~and~c=d#qwe
+      // This script handles 404 errors and redirects to the correct path with base
       // Note: this 404.html file must be at least 512 bytes for some
       // browsers to recognize it as a valid 404 page.
-      var pathSegmentsToKeep = 1;
-      var l = window.location;
-      var basePath = '/ECO';
-      
-      // Get the path after the base path
-      var pathAfterBase = '';
-      if (l.pathname.indexOf(basePath) === 0) {
-        pathAfterBase = l.pathname.slice(basePath.length);
-      } else {
-        // If not on base path, use the full pathname
-        pathAfterBase = l.pathname;
-      }
-      
-      // Remove leading slash if present
-      if (pathAfterBase.charAt(0) === '/') {
-        pathAfterBase = pathAfterBase.slice(1);
-      }
-      
-      // Build the redirect URL
-      var redirectPath = basePath + '/?/' + pathAfterBase.replace(/&/g, '~and~');
-      if (l.search) {
-        redirectPath += '&' + l.search.slice(1).replace(/&/g, '~and~');
-      }
-      if (l.hash) {
-        redirectPath += l.hash;
-      }
-      
-      // Redirect
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + redirectPath
-      );
+      (function() {
+        var l = window.location;
+        var basePath = '/ECO';
+        
+        // Get the current pathname
+        var currentPath = l.pathname;
+        
+        // Remove leading slash
+        if (currentPath.charAt(0) === '/') {
+          currentPath = currentPath.slice(1);
+        }
+        
+        // If path already starts with ECO/, remove it to avoid duplication
+        if (currentPath.indexOf('ECO/') === 0) {
+          currentPath = currentPath.slice(4);
+        }
+        if (currentPath === 'ECO') {
+          currentPath = '';
+        }
+        
+        // Build the redirect URL with query string format for SPA routing
+        var redirectPath = basePath + '/?/' + currentPath.replace(/&/g, '~and~');
+        
+        // Add existing search params if any
+        if (l.search && l.search.length > 1) {
+          redirectPath += '&' + l.search.slice(1).replace(/&/g, '~and~');
+        }
+        
+        // Add hash if any
+        if (l.hash) {
+          redirectPath += l.hash;
+        }
+        
+        // If no path, just go to base
+        if (!currentPath) {
+          redirectPath = basePath + '/';
+        }
+        
+        // Redirect immediately
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + redirectPath
+        );
+      }());
     </script>
   </head>
   <body>
-    <p>Redirecting...</p>
+    <p style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+      Redirecting to Rwanda Market...
+    </p>
   </body>
 </html>
 
