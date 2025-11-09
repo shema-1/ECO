@@ -18,10 +18,10 @@ export default function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/category/:category/:subcategory?" element={<ProductList />} />
-          <Route path="/deals" element={<ProductList category="deals" />} />
-          <Route path="/new" element={<ProductList category="new" />} />
-          <Route path="/trending" element={<ProductList category="trending" />} />
-          <Route path="/clearance" element={<ProductList category="clearance" />} />
+          <Route path="/deals" element={<ProductList />} />
+          <Route path="/new" element={<ProductList />} />
+          <Route path="/trending" element={<ProductList />} />
+          <Route path="/clearance" element={<ProductList />} />
         </Routes>
       </main>
       <Footer />
