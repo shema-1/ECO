@@ -17,23 +17,33 @@
       var l = window.location;
       var basePath = '/ECO';
       
-      // Check if we're already on the base path
+      // Get the path after the base path
+      var pathAfterBase = '';
       if (l.pathname.indexOf(basePath) === 0) {
-        // We're on /ECO/ or a subpath, redirect to /ECO/?/path
-        var pathAfterBase = l.pathname.slice(basePath.length);
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          basePath + '/?/' + pathAfterBase.slice(1).replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        );
+        pathAfterBase = l.pathname.slice(basePath.length);
       } else {
-        // Redirect to base path
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          basePath + '/'
-        );
+        // If not on base path, use the full pathname
+        pathAfterBase = l.pathname;
       }
+      
+      // Remove leading slash if present
+      if (pathAfterBase.charAt(0) === '/') {
+        pathAfterBase = pathAfterBase.slice(1);
+      }
+      
+      // Build the redirect URL
+      var redirectPath = basePath + '/?/' + pathAfterBase.replace(/&/g, '~and~');
+      if (l.search) {
+        redirectPath += '&' + l.search.slice(1).replace(/&/g, '~and~');
+      }
+      if (l.hash) {
+        redirectPath += l.hash;
+      }
+      
+      // Redirect
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + redirectPath
+      );
     </script>
   </head>
   <body>
