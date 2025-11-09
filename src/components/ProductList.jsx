@@ -35,6 +35,8 @@ export default function ProductList({ category: propCategory }) {
       if (matchedCategory) {
         setSelectedCategory(matchedCategory)
       }
+    } else {
+      setSelectedCategory('All')
     }
     if (urlSubcategory) {
       const decodedSubcategory = decodeURIComponent(urlSubcategory).replace(/-/g, ' ')
@@ -45,8 +47,10 @@ export default function ProductList({ category: propCategory }) {
       if (matchedSubcategory) {
         setSelectedSubcategory(matchedSubcategory)
       }
+    } else {
+      setSelectedSubcategory('All')
     }
-  }, [urlCategory, urlSubcategory])
+  }, [urlCategory, urlSubcategory, categories, subcategories])
 
   const filteredProducts = useMemo(() => {
     if (!products || products.length === 0) {
@@ -54,32 +58,55 @@ export default function ProductList({ category: propCategory }) {
       return []
     }
     
-    return products
-      .filter(p => 
-        !search || 
+    let filtered = products
+    
+    // Search filter
+    if (search) {
+      filtered = filtered.filter(p => 
         p.name.toLowerCase().includes(search.toLowerCase()) ||
         p.description.toLowerCase().includes(search.toLowerCase())
       )
-      .filter(p => selectedCategory === 'All' || p.category === selectedCategory)
-      .filter(p => selectedSubcategory === 'All' || p.subcategory === selectedSubcategory)
-      .filter(p => {
-        const price = p.price || 0
-        return price >= selectedPriceRange.min && price <= selectedPriceRange.max
-      })
-      .filter(p => !inStock || (p.stock !== undefined && p.stock > 0))
-      .filter(p => !onlyFeatured || p.featured)
-      .sort((a, b) => {
-        switch (sortBy) {
-          case 'priceLow':
-            return (a.price || 0) - (b.price || 0)
-          case 'priceHigh':
-            return (b.price || 0) - (a.price || 0)
-          case 'rating':
-            return (b.rating || 0) - (a.rating || 0)
-          default:
-            return (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
-        }
-      })
+    }
+    
+    // Category filter
+    if (selectedCategory !== 'All') {
+      filtered = filtered.filter(p => p.category === selectedCategory)
+    }
+    
+    // Subcategory filter
+    if (selectedSubcategory !== 'All') {
+      filtered = filtered.filter(p => p.subcategory === selectedSubcategory)
+    }
+    
+    // Price range filter
+    filtered = filtered.filter(p => {
+      const price = p.price || 0
+      return price >= selectedPriceRange.min && price <= selectedPriceRange.max
+    })
+    
+    // Stock filter
+    if (inStock) {
+      filtered = filtered.filter(p => p.stock !== undefined && p.stock > 0)
+    }
+    
+    // Featured filter
+    if (onlyFeatured) {
+      filtered = filtered.filter(p => p.featured)
+    }
+    
+    // Sort
+    return filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'priceLow':
+          return (a.price || 0) - (b.price || 0)
+        case 'priceHigh':
+          return (b.price || 0) - (a.price || 0)
+        case 'rating':
+          return (b.rating || 0) - (a.rating || 0)
+        default:
+          return (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
+      }
+    })
   }, [search, selectedCategory, selectedSubcategory, selectedPriceRange, sortBy, inStock, onlyFeatured])
 
   // Today's deals (discounted items)
@@ -185,14 +212,40 @@ export default function ProductList({ category: propCategory }) {
       </div>
 
       <div className="results-info">
-        Showing {filteredProducts.length} products
+        Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
+        {filteredProducts.length === 0 && products.length > 0 && (
+          <span style={{color: 'var(--muted)', fontSize: '14px', marginLeft: '8px'}}>
+            (Try adjusting your filters)
+          </span>
+        )}
       </div>
 
-      <div className="product-grid">
-        {filteredProducts.map(p => (
-          <ProductCard key={p.id} product={p} />
-        ))}
-      </div>
+      {filteredProducts.length === 0 ? (
+        <div style={{textAlign: 'center', padding: '48px 16px', color: 'var(--muted)'}}>
+          <p style={{fontSize: '18px', marginBottom: '8px'}}>No products found</p>
+          <p style={{fontSize: '14px'}}>Try adjusting your search or filter criteria</p>
+          <button 
+            className="btn primary" 
+            style={{marginTop: '16px'}}
+            onClick={() => {
+              setSearch('')
+              setSelectedCategory('All')
+              setSelectedSubcategory('All')
+              setSelectedPriceRange(priceRanges[0])
+              setInStock(false)
+              setOnlyFeatured(false)
+            }}
+          >
+            Clear All Filters
+          </button>
+        </div>
+      ) : (
+        <div className="product-grid">
+          {filteredProducts.map(p => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
