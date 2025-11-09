@@ -22,26 +22,35 @@ export default function ProductList() {
   const [onlyFeatured, setOnlyFeatured] = useState(false)
 
   const filteredProducts = useMemo(() => {
+    if (!products || products.length === 0) {
+      console.warn('No products found')
+      return []
+    }
+    
     return products
       .filter(p => 
+        !search || 
         p.name.toLowerCase().includes(search.toLowerCase()) ||
         p.description.toLowerCase().includes(search.toLowerCase())
       )
       .filter(p => selectedCategory === 'All' || p.category === selectedCategory)
       .filter(p => selectedSubcategory === 'All' || p.subcategory === selectedSubcategory)
-      .filter(p => p.price >= selectedPriceRange.min && p.price <= selectedPriceRange.max)
-      .filter(p => !inStock || p.stock > 0)
+      .filter(p => {
+        const price = p.price || 0
+        return price >= selectedPriceRange.min && price <= selectedPriceRange.max
+      })
+      .filter(p => !inStock || (p.stock !== undefined && p.stock > 0))
       .filter(p => !onlyFeatured || p.featured)
       .sort((a, b) => {
         switch (sortBy) {
           case 'priceLow':
-            return a.price - b.price
+            return (a.price || 0) - (b.price || 0)
           case 'priceHigh':
-            return b.price - a.price
+            return (b.price || 0) - (a.price || 0)
           case 'rating':
-            return b.rating - a.rating
+            return (b.rating || 0) - (a.rating || 0)
           default:
-            return b.featured ? 1 : -1
+            return (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
         }
       })
   }, [search, selectedCategory, selectedSubcategory, selectedPriceRange, sortBy, inStock, onlyFeatured])
