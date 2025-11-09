@@ -28,3 +28,6 @@ export default function App() {
     </div>
   )
 }
+
+// Debug: Log when App renders
+console.log('App component loaded')
